@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace e4POCApi.Models
 {
-    public class Book
+    public class ContactDetails
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

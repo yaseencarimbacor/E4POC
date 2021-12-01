@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Functions
 {
-    public class UpdateBook
+    public class UpdateContactDetails
     {
-        private readonly ILogger<UpdateBook> _logger;
-        private readonly IBookService _bookService;
+        private readonly ILogger<UpdateContactDetails> _logger;
+        private readonly IContactDetailsService _bookService;
 
-        public UpdateBook(
-            ILogger<UpdateBook> logger,
-            IBookService bookService)
+        public UpdateContactDetails(
+            ILogger<UpdateContactDetails> logger,
+            IContactDetailsService bookService)
         {
             _logger = logger;
             _bookService = bookService;
         }
 
-        [FunctionName(nameof(UpdateBook))]
+        [FunctionName(nameof(UpdateContactDetails))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "Book/{id}")] HttpRequest req,
             string id)
@@ -44,9 +44,9 @@ namespace e4POCApi.Functions
 
                 var input = await new StreamReader(req.Body).ReadToEndAsync();
 
-                var updateBookRequest = JsonConvert.DeserializeObject<Book>(input);
+                var updateBookRequest = JsonConvert.DeserializeObject<ContactDetails>(input);
 
-                Book updatedBook = new Book
+                ContactDetails updatedBook = new ContactDetails
                 {
                     Id = id,
                     FirstName = updateBookRequest.FirstName,
@@ -59,7 +59,7 @@ namespace e4POCApi.Functions
                     Notes = updateBookRequest.Notes
                 };
 
-                await _bookService.UpdateBook(id, updatedBook);
+                await _bookService.UpdateContactDetails(id, updatedBook);
 
                 result = new StatusCodeResult(StatusCodes.Status202Accepted);
             }

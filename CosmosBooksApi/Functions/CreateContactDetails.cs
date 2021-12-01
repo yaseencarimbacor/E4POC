@@ -13,20 +13,20 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Functions
 {
-    public class CreateBook
+    public class CreateContactDetails
     {
-        private readonly ILogger<CreateBook> _logger;
-        private readonly IBookService _bookService;
+        private readonly ILogger<CreateContactDetails> _logger;
+        private readonly IContactDetailsService _bookService;
 
-        public CreateBook(
-            ILogger<CreateBook> logger,
-            IBookService bookService)
+        public CreateContactDetails(
+            ILogger<CreateContactDetails> logger,
+            IContactDetailsService bookService)
         {
             _logger = logger;
             _bookService = bookService;
         }
 
-        [FunctionName(nameof(CreateBook))]
+        [FunctionName(nameof(CreateContactDetails))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Book")] HttpRequest req)
         {
@@ -36,9 +36,9 @@ namespace e4POCApi.Functions
             {
                 var incomingRequest = await new StreamReader(req.Body).ReadToEndAsync();
 
-                var bookRequest = JsonConvert.DeserializeObject<Book>(incomingRequest);
+                var bookRequest = JsonConvert.DeserializeObject<ContactDetails>(incomingRequest);
 
-                var book = new Book
+                var book = new ContactDetails
                 {
                     Id = ObjectId.GenerateNewId().ToString(),
                     FirstName = bookRequest.FirstName,
@@ -52,7 +52,7 @@ namespace e4POCApi.Functions
 
                 };
 
-                await _bookService.CreateBook(book);
+                await _bookService.CreateContactDetails(book);
 
                 result = new StatusCodeResult(StatusCodes.Status201Created);
             }

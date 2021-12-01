@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Functions
 {
-    public class GetAllBooks
+    public class GetAllContactDetails
     {
-        private readonly ILogger<GetAllBooks> _logger;
-        private readonly IBookService _bookService;
+        private readonly ILogger<GetAllContactDetails> _logger;
+        private readonly IContactDetailsService _bookService;
 
-        public GetAllBooks(
-            ILogger<GetAllBooks> logger,
-            IBookService bookService)
+        public GetAllContactDetails(
+            ILogger<GetAllContactDetails> logger,
+            IContactDetailsService bookService)
         {
             _logger = logger;
             _bookService = bookService;
         }
 
-        [FunctionName(nameof(GetAllBooks))]
+        [FunctionName(nameof(GetAllContactDetails))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Books")] HttpRequest req)
         {

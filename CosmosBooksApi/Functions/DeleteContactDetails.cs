@@ -9,37 +9,38 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Functions
 {
-    public class GetBookById
+    public class DeleteContactDetails
     {
-        private readonly ILogger<GetBookById> _logger;
-        private readonly IBookService _bookService;
+        private readonly ILogger<DeleteContactDetails> _logger;
+        private readonly IContactDetailsService _bookService;
 
-        public GetBookById(
-            ILogger<GetBookById> logger,
-            IBookService bookService)
+        public DeleteContactDetails(
+            ILogger<DeleteContactDetails> logger,
+            IContactDetailsService bookService)
         {
             _logger = logger;
             _bookService = bookService;
         }
 
-        [FunctionName(nameof(GetBookById))]
+        [FunctionName(nameof(DeleteContactDetails))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Book/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "Book/{id}")] HttpRequest req,
             string id)
         {
             IActionResult result;
 
             try
             {
-                var book = await _bookService.GetBook(id);
+                var bookToDelete = await _bookService.GetBook(id);
 
-                if (book == null)
+                if (bookToDelete == null)
                 {
                     _logger.LogWarning($"Book with id: {id} doesn't exist.");
                     result = new StatusCodeResult(StatusCodes.Status404NotFound);
                 }
 
-                result = new OkObjectResult(book);
+                await _bookService.RemoveContactDetails(bookToDelete);
+                result = new StatusCodeResult(StatusCodes.Status204NoContent);
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ namespace e4POCApi
             settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
             builder.Services.AddSingleton((s) => new MongoClient(settings));
-            builder.Services.AddTransient<IBookService, BookService>();
+            builder.Services.AddTransient<IContactDetailsService, ContactDetailsService>();
         }
     }
 }

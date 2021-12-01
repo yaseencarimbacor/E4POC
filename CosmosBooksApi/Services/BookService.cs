@@ -7,49 +7,49 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Services
 {
-    public class BookService : IBookService
+    public class ContactDetailsService : IContactDetailsService
     {
         private readonly MongoClient _mongoClient;
         private readonly IMongoDatabase _database;
-        private readonly IMongoCollection<Book> _books;
+        private readonly IMongoCollection<ContactDetails> _books;
 
-        public BookService(
+        public ContactDetailsService(
             MongoClient mongoClient,
             IConfiguration configuration)
         {
             _mongoClient = mongoClient;
             _database = _mongoClient.GetDatabase(configuration["DatabaseName"]);
-            _books = _database.GetCollection<Book>(configuration["CollectionName"]);
+            _books = _database.GetCollection<ContactDetails>(configuration["CollectionName"]);
         }
 
-        public async Task CreateBook(Book bookIn)
+        public async Task CreateContactDetails(ContactDetails bookIn)
         {
             await _books.InsertOneAsync(bookIn);
         }
 
-        public async Task<Book> GetBook(string id)
+        public async Task<ContactDetails> GetBook(string id)
         {
             var book = await _books.FindAsync(book => book.Id == id);
             return book.FirstOrDefault();
         }
 
-        public async Task<List<Book>> GetBooks()
+        public async Task<List<ContactDetails>> GetBooks()
         {
             var books = await _books.FindAsync(book => true);
             return books.ToList();
         }
 
-        public async Task RemoveBook(Book bookIn)
+        public async Task RemoveContactDetails(ContactDetails bookIn)
         {
             await _books.DeleteOneAsync(book => book.Id == bookIn.Id);
         }
 
-        public async Task RemoveBookById(string id)
+        public async Task RemoveContactDetailsById(string id)
         {
             await _books.DeleteOneAsync(book => book.Id == id);
         }
 
-        public async Task UpdateBook(string id, Book bookIn)
+        public async Task UpdateContactDetails(string id, ContactDetails bookIn)
         {
             await _books.ReplaceOneAsync(book => book.Id == id, bookIn);
         }

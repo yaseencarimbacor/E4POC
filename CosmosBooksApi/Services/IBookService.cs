@@ -4,27 +4,27 @@ using System.Threading.Tasks;
 
 namespace e4POCApi.Services
 {
-    public interface IBookService
+    public interface IContactDetailsService
     {
         /// <summary>
         /// Get all books from the Books collection
         /// </summary>
         /// <returns></returns>
-        Task<List<Book>> GetBooks();
+        Task<List<ContactDetails>> GetBooks();
 
         /// <summary>
         /// Get a book by its id from the Books collection
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<Book> GetBook(string id);
+        Task<ContactDetails> GetBook(string id);
 
         /// <summary>
         /// Insert a book into the Books collection
         /// </summary>
         /// <param name="book"></param>
         /// <returns></returns>
-        Task CreateBook(Book bookIn);
+        Task CreateContactDetails(ContactDetails bookIn);
 
         /// <summary>
         /// Updates an existing book in the Books collection
@@ -32,20 +32,20 @@ namespace e4POCApi.Services
         /// <param name="id"></param>
         /// <param name="book"></param>
         /// <returns></returns>
-        Task UpdateBook(string id, Book bookIn);
+        Task UpdateContactDetails(string id, ContactDetails bookIn);
 
         /// <summary>
         /// Removes a book from the Books collection
         /// </summary>
         /// <param name="book"></param>
         /// <returns></returns>
-        Task RemoveBook(Book bookIn);
+        Task RemoveContactDetails(ContactDetails bookIn);
 
         /// <summary>
         /// Removes a book with the specified id from the Books collection
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task RemoveBookById(string id);
+        Task RemoveContactDetailsById(string id);
     }
 }
