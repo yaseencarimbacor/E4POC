@@ -24,7 +24,7 @@ namespace e4POCApi.Functions
 
         [FunctionName(nameof(DeleteContactDetails))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "Book/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "ContactDetails/{id}")] HttpRequest req,
             string id)
         {
             IActionResult result;

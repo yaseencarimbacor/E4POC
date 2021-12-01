@@ -24,7 +24,7 @@ namespace e4POCApi.Functions
 
         [FunctionName(nameof(GetAllContactDetails))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Books")] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "lstContactDetails")] HttpRequest req)
         {
             IActionResult result;
 

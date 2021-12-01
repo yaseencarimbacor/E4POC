@@ -28,7 +28,7 @@ namespace e4POCApi.Functions
 
         [FunctionName(nameof(CreateContactDetails))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Book")] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "ContactDetails")] HttpRequest req)
         {
             IActionResult result;
 
