@@ -1,5 +1,5 @@
-﻿using CosmosBooksApi;
-using CosmosBooksApi.Services;
+﻿using e4POCApi;
+using e4POCApi.Services;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Security.Authentication;
 
 [assembly: FunctionsStartup(typeof(Startup))]
-namespace CosmosBooksApi
+namespace e4POCApi
 {
     public class Startup : FunctionsStartup
     {

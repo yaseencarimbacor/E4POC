@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CosmosBooksApi.Models
+namespace e4POCApi.Models
 {
     public class Book
     {

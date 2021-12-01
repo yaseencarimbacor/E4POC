@@ -1,5 +1,5 @@
-using CosmosBooksApi.Models;
-using CosmosBooksApi.Services;
+using e4POCApi.Models;
+using e4POCApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -11,7 +11,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace CosmosBooksApi.Functions
+namespace e4POCApi.Functions
 {
     public class CreateBook
     {

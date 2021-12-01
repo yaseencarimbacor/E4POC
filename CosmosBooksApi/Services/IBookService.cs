@@ -1,8 +1,8 @@
-﻿using CosmosBooksApi.Models;
+﻿using e4POCApi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CosmosBooksApi.Services
+namespace e4POCApi.Services
 {
     public interface IBookService
     {

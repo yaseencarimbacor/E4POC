@@ -1,11 +1,11 @@
-﻿using CosmosBooksApi.Models;
+﻿using e4POCApi.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CosmosBooksApi.Services
+namespace e4POCApi.Services
 {
     public class BookService : IBookService
     {

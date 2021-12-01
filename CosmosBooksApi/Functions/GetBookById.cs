@@ -1,4 +1,4 @@
-using CosmosBooksApi.Services;
+using e4POCApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace CosmosBooksApi.Functions
+namespace e4POCApi.Functions
 {
     public class GetBookById
     {
