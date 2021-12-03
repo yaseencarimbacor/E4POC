@@ -1,0 +1,10 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "ConnectionString": "mongodb://velidamongodb:slLEmn4GL0bFBmQDzsJrDwcNztG48jcWdNiJu95x1UeGw6QJUm9rWjhELMz6hKcrMT92KXxTpBhh93UKYOL7MA==@velidamongodb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@velidamongodb@",
+    "DatabaseName": "ContactDetailsDB",
+    "CollectionName": "ContactDetails"
+  }
+}
