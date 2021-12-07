@@ -49,6 +49,7 @@ namespace e4POCApi.Functions
                 ContactDetails updatedBook = new ContactDetails
                 {
                     Id = id,
+                    //name = updateBookRequest.FirstName + " "+ updateBookRequest.Surname,
                     FirstName = updateBookRequest.FirstName,
                     Surname = updateBookRequest.Surname,
                     Gender = updateBookRequest.Gender,

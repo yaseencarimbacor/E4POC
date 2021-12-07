@@ -41,6 +41,7 @@ namespace e4POCApi.Functions
                 var book = new ContactDetails
                 {
                     Id = ObjectId.GenerateNewId().ToString(),
+                   // name = bookRequest.FirstName + " "+ bookRequest.Surname,
                     FirstName = bookRequest.FirstName,
                     Surname = bookRequest.Surname,
                     Gender = bookRequest.Gender,
